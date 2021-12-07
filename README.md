@@ -1,2 +1,2 @@
 # Pocobu
-## Copyrught 2021 | @pocobu
+## Copyright 2021 | @pocobu
