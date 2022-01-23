@@ -4,6 +4,10 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <x-jet-welcome />
+    @can('admin_access')
+        <x-slot name="title">
+            {{ __('Admin Dashboard') }}
+        </x-slot>
+        @include('pages.admin.dashboard')
+    @endcan
 </x-app-layout>

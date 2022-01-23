@@ -16,7 +16,7 @@
 
             <div class="w-md-75">
                 <!-- Token Name -->
-                <div class="mb-3">
+                <div class="form-group">
                     <x-jet-label for="name" value="{{ __('Token Name') }}" />
                     <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
                                  wire:model.defer="createApiTokenForm.name" autofocus />
@@ -31,10 +31,10 @@
                         <div class="mt-2 row">
                             @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                                 <div class="col-6">
-                                    <div class="mb-3">
-                                        <div class="form-check">
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
                                             <x-jet-checkbox wire:model.defer="createApiTokenForm.permissions" id="{{ 'create-'.$permission }}" :value="$permission"/>
-                                            <label class="form-check-label" for="{{ 'create-'.$permission }}">
+                                            <label class="custom-control-label" for="{{ 'create-'.$permission }}">
                                                 {{ $permission }}
                                             </label>
                                         </div>
@@ -113,7 +113,7 @@
                 {{ __('Please copy your new API token. For your security, it won\'t be shown again.') }}
             </div>
 
-            <div class="mb-3">
+            <div class="form-group">
                 <x-jet-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken"
                              autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
                              @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)"
@@ -138,10 +138,10 @@
             <div class="mt-2 row">
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                     <div class="col-6">
-                        <div class="mb-3">
-                            <div class="form-check">
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
                                 <x-jet-checkbox wire:model.defer="updateApiTokenForm.permissions" id="{{ 'update-'.$permission }}" :value="$permission"/>
-                                <label class="form-check-label" for="{{ 'update-'.$permission }}">
+                                <label class="custom-control-label" for="{{ 'update-'.$permission }}">
                                     {{ $permission }}
                                 </label>
                             </div>
