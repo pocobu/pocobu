@@ -15,7 +15,7 @@
 
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div class="mb-3" x-data="{photoName: null, photoPreview: null}">
+            <div class="form-group" x-data="{photoName: null, photoPreview: null}">
                 <!-- Profile Photo File Input -->
                 <input type="file" hidden
                        wire:model="photo"
@@ -47,10 +47,6 @@
 				
 				@if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        <div wire:loading wire:target="deleteProfilePhoto" class="spinner-border spinner-border-sm" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-
                         {{ __('Remove Photo') }}
                     </x-jet-secondary-button>
                 @endif
@@ -61,14 +57,14 @@
 
         <div class="w-md-75">
             <!-- Name -->
-            <div class="mb-3">
+            <div class="form-group">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model.defer="state.name" autocomplete="name" />
                 <x-jet-input-error for="name" />
             </div>
 
             <!-- Email -->
-            <div class="mb-3">
+            <div class="form-group">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model.defer="state.email" />
                 <x-jet-input-error for="email" />
@@ -79,10 +75,6 @@
     <x-slot name="actions">
 		<div class="d-flex align-items-baseline">
 			<x-jet-button>
-                <div wire:loading class="spinner-border spinner-border-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-
 				{{ __('Save') }}
 			</x-jet-button>
 		</div>

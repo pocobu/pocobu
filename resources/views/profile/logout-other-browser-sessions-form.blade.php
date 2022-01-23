@@ -87,10 +87,6 @@
                 </x-jet-secondary-button>
 
                 <x-jet-button class="ms-2" wire:click="logoutOtherBrowserSessions" wire:loading.attr="disabled">
-                    <div wire:loading wire:target="logoutOtherBrowserSessions" class="spinner-border spinner-border-sm" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-
                     {{ __('Log out Other Browser Sessions') }}
                 </x-jet-button>
             </x-slot>
