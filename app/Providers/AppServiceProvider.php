@@ -8,8 +8,6 @@ use NascentAfrica\Jetstrap\JetstrapFacade;
 class AppServiceProvider extends ServiceProvider
 {
 
-    use JetstrapFacade;
-
     /**
      * Register any application services.
      *
